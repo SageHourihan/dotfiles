@@ -1,0 +1,30 @@
+#common commands
+alias q='quit'
+alias c='clear'
+alias cls='clear'
+alias h='history'
+alias k='kill'
+
+#directories
+alias home='cd ~'
+alias ~='cd ~'
+alias root='cd /'
+alias desktop='cd ~/Desktop'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+
+#list files
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+
+#openssh commands
+alias ssh-status='sudo systemctl status ssh'
+alias ssh-start='sudo systemctl start ssh'
+alias ssh-stop='sudo systemctl stop ssh'
+alias ssh-enable='sudo systemctl enable ssh'
+alias ssh-disable='sudo systemctl disable ssh'
+alias ssh-restart='sudo systemctl restart ssh'
