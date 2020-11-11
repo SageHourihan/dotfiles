@@ -1,11 +1,11 @@
 # Sage's dotfiles
 
 Uploading my dotfiles to a repository.
-
+______
 ### Installation
 
 **Using Git**
-______
+
 ***Note: Make sure you are in the root directory***
 
 `git clone https://github.com/SageHourihan/dotfiles`
