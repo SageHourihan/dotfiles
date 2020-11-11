@@ -31,3 +31,7 @@ done
 
 #run the tools script
 ./tools.sh
+
+#refresh environments
+source ~/.bashrc
+source ~/.bash_profile
