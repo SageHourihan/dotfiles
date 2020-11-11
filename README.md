@@ -1,10 +1,8 @@
-#
-Sage's dotfiles
+# Sage's dotfiles
 
 Uploading my dotfiles to a repository.
 
-###
-Installation
+### Installation
 
 **Using Git**
 ______
@@ -18,7 +16,7 @@ Change directory into dotfile
 
 Make the install.sh script executable
 
-`chmod +x install.sh
+`chmod +x install.sh`
 
 Run the install script with the tilda(~) as a parameter
 
