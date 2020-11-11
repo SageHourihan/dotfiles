@@ -28,3 +28,9 @@ alias ssh-stop='sudo systemctl stop ssh'
 alias ssh-enable='sudo systemctl enable ssh'
 alias ssh-disable='sudo systemctl disable ssh'
 alias ssh-restart='sudo systemctl restart ssh'
+
+#git aliases
+alias gs='git status'
+alias ga='git add'
+alias gcm='git commit -m'
+alias gp='git push'
