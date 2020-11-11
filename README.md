@@ -6,7 +6,7 @@ ______
 
 **Using Git**
 
-***Note: Make sure you are in the root directory***
+*Note: Make sure you are in the root directory*
 
 `git clone https://github.com/SageHourihan/dotfiles`
 
