@@ -34,3 +34,12 @@ alias gs='git status'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gp='git push'
+alias gc='git clone'
+
+#functions
+#
+#oneliner of mkdir <folder> && cd <folder>
+mkcd() {
+	mkdir "$1"
+	cd "$1"
+}
