@@ -43,3 +43,7 @@ mkcd() {
 	mkdir "$1"
 	cd "$1"
 }
+#onliner of sudo rm -r <folder>
+rmd() {
+	sudo rm -r "$1"
+}
