@@ -5,6 +5,13 @@
 # And sets Sublime preferences
 ############################
 
+# Define colors...
+RED=`tput bold && tput setaf 1`
+GREEN=`tput bold && tput setaf 2`
+YELLOW=`tput bold && tput setaf 3`
+BLUE=`tput bold && tput setaf 4`
+NC=`tput sgr0`
+
 if [ "$#" -ne 1 ]; then
     echo "Usage: install.sh <home_directory>"
     exit 1
