@@ -33,13 +33,13 @@ dotfiledir=${homedir}/dotfiles
 files="bash_profile bashrc bash_prompt aliases private"
 
 # change to the dotfiles directory
-echo "Changing to the ${dotfiledir} directory"
+BLUE "Changing to the ${dotfiledir} directory"
 cd ${dotfiledir}
-echo "...done"
+GREEN "...done"
 
 # create symlinks (will overwrite old dotfiles)
 for file in ${files}; do
-    echo "Creating symlink to $file in home directory."
+    BLUE "Creating symlink to $file in home directory."
     ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
 done
 
