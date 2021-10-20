@@ -12,9 +12,16 @@ YELLOW=`tput bold && tput setaf 3`
 BLUE=`tput bold && tput setaf 4`
 NC=`tput sgr0`
 
+# if parameter does not = 1 print and exit
 if [ "$#" -ne 1 ]; then
-    echo "Usage: install.sh <home_directory>"
-    exit 1
+    RED "Usage: install.sh <home_directory>"
+    exit
+fi
+
+# testing if root
+if [$UID -ne 0]; then
+    RED "You must run this script as root!" && echo
+    exit
 fi
 
 homedir=$1
