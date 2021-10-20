@@ -18,9 +18,9 @@ Make the install.sh script executable
 
 `chmod +x install.sh`
 
-Run the install script with the tilda(~) as a parameter
+Run the install script with the tilde(~) as a parameter
 
-`./install ~`
+`./install.sh ~`
 
 Refresh the .bashrc and .bash_profile
 
