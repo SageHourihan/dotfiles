@@ -12,6 +12,19 @@ YELLOW=`tput bold && tput setaf 3`
 BLUE=`tput bold && tput setaf 4`
 NC=`tput sgr0`
 
+function RED(){
+	echo -e "\n${RED}${1}${NC}"
+}
+function GREEN(){
+	echo -e "\n${GREEN}${1}${NC}"
+}
+function YELLOW(){
+	echo -e "\n${YELLOW}${1}${NC}"
+}
+function BLUE(){
+	echo -e "\n${BLUE}${1}${NC}"
+}
+
 # if parameter does not = 1 print and exit
 if [ "$#" -ne 1 ]; then
     RED "Usage: install.sh <home_directory>"
