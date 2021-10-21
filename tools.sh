@@ -46,14 +46,14 @@ sudo apt-get install -y curl
 BLUE "installing sqlitebrowser"
 sudo apt-get install -y sqlitebrowser
 
-BLUE "installing pip..."
-sudo apt-get -y python-pip
+BLUE "installing pip3..."
+sudo installt -y python3-pip
 
 BLUE "installing python-requests..."
 pip install requests
 
-BLUE "installing sqllite..."
-sudo apt install -y sqllite
+BLUE "installing sqlite..."
+sudo apt install -y sqlite
 
 BLUE "installing nikto..."
 sudo apt install -y nikto
