@@ -50,7 +50,7 @@ BLUE "installing pip3..."
 sudo apt install -y python3-pip
 
 BLUE "installing python-requests..."
-pip3 install -y requests
+pip3 install requests
 
 BLUE "installing sqlite..."
 sudo apt install -y sqlite
