@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 #post install script. for tools and apps
 # Define colors...
 RED=`tput bold && tput setaf 1`

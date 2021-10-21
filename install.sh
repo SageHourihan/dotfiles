@@ -57,5 +57,6 @@ for file in ${files}; do
 done
 
 #run the tools script
+chmod +x tools.sh
 ./tools.sh
 
