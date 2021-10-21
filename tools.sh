@@ -47,10 +47,10 @@ BLUE "installing sqlitebrowser"
 sudo apt-get install -y sqlitebrowser
 
 BLUE "installing pip3..."
-sudo install python3-pip
+sudo apt install -y python3-pip
 
 BLUE "installing python-requests..."
-pip3 install requests
+pip3 apt install -y requests
 
 BLUE "installing sqlite..."
 sudo apt install -y sqlite
