@@ -46,14 +46,14 @@ sudo apt-get install -y curl
 BLUE "installing sqlitebrowser"
 sudo apt-get install -y sqlitebrowser
 
-BLUE "installing pip3..."
-sudo apt install -y python3-pip
-
-BLUE "installing python-requests..."
-pip3 install requests
+BLUE "installing python..."
+sudo apt-get install python
 
 BLUE "installing sqlite..."
 sudo apt install -y sqlite
 
 BLUE "installing nikto..."
 sudo apt install -y nikto
+
+BLUE "installing hydra..."
+sudo apt-ger install hydra
