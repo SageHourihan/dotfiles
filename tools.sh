@@ -56,4 +56,4 @@ BLUE "installing nikto..."
 sudo apt install -y nikto
 
 BLUE "installing hydra..."
-sudo apt-ger install hydra
+sudo apt-get install hydra
