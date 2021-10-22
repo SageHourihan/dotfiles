@@ -24,6 +24,6 @@ Run the install script with the tilde(~) as a parameter
 
 Refresh the .bashrc and .bash_profile
 
-`source .bashrc source .bash_profile`
+`source .bashrc source .bash_profile source .tmux.conf`
 
 
