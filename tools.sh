@@ -64,11 +64,3 @@ sudo apt install -y nikto
 
 BLUE "installing hydra..."
 sudo apt-get install -y hydra
-
-BLUE "installing snap..."
-sudo apt install -y snapd
-
-BLUE "installing john the ripper"
-sudo snap install john-the-ripper
-
-GREEN "install complete"
