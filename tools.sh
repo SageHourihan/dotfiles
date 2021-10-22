@@ -33,6 +33,7 @@ BLUE "intsalling openssh-server"
 sudo apt install -y openssh-server
 
 BLUE "installing tmux..."
+sudo apt install -y tmux
 
 BLUE "installing vbox guest additions and utils..."
 sudo apt install -y virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms
@@ -42,6 +43,8 @@ sudo apt-get install -y openvpn
 
 BLUE "installing nmap..."
 sudo apt-get install -y nmap
+
+#todo: add dirb
 
 BLUE "installing curl..."
 sudo apt-get install -y curl
