@@ -71,13 +71,4 @@ sudo apt install -y snapd
 BLUE "installing john the ripper"
 sudo snap install john-the-ripper
 
-YELLOW "making john folder in /opt..."
-sudo mkdir /opt/john/
-
-YELLOW "moving john files from /snap/bin to /opt/john..."
-sudo mv /snap/bin/john* /opt/john/
-
-YELLOW "adding me to group to run john files..."
-sudo chown /opt/john/ :sage
-
 GREEN "install complete"
