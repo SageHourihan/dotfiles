@@ -67,3 +67,16 @@ sudo apt install -y nikto
 
 BLUE "installing hydra..."
 sudo apt-get install -y hydra
+
+YELLOW "installing JTR requirements..."
+sudo apt-get -y install git build-essential libssl-dev zlib1g-dev
+
+BLUE "installing JTR..."
+cd /opt
+sudo git clone https://github.com/openwall/john -b bleeding-jumbo john
+cd /opt/john/src
+sudo ./configure && make -s clean && make -sj4
+cd /opt/john/run
+./john --test=0
+
+GREEN "installs complete"
