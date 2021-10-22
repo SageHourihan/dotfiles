@@ -45,6 +45,7 @@ BLUE "installing nmap..."
 sudo apt-get install -y nmap
 
 #todo: add dirb
+#todo: add gobuster
 
 BLUE "installing curl..."
 sudo apt-get install -y curl
