@@ -56,7 +56,7 @@ for file in ${files}; do
     ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
 done
 
-#run the tools script
+#running post script installs for few tools
 chmod +x tools.sh
 ./tools.sh
 
