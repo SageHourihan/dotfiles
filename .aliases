@@ -1,6 +1,5 @@
 #local ssh
-alias parrot='ssh sage@127.0.0.1 -p 2222'
-alias ub='ssh root@127.0.0.1 -p 1111'
+alias ub='ssh sage@127.0.0.1 -p 2222'
 
 #common commands
 alias q='quit'
@@ -14,6 +13,7 @@ alias home='cd ~'
 alias ~='cd ~'
 alias root='cd /'
 alias desktop='cd ~/Desktop'
+alias code='cd ~/Document/Code'
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
@@ -36,9 +36,12 @@ alias ssh-restart='sudo systemctl restart ssh'
 #git aliases
 alias gs='git status'
 alias ga='git add'
+alias gaa='git add -a'
 alias gcm='git commit -m'
+alias gck='git checkout'
 alias gp='git push'
 alias gc='git clone'
+alias gm='git merge'
 
 #functions
 #
