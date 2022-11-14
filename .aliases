@@ -42,6 +42,8 @@ alias gck='git checkout'
 alias gp='git push'
 alias gc='git clone'
 alias gm='git merge'
+alias gsw='git switch'
+alias gb='git branch
 
 #functions
 #
