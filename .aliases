@@ -45,8 +45,13 @@ alias gm='git merge'
 alias gsw='git switch'
 alias gb='git branch'
 
-#functions
-#
+#neovim aliases
+alias vim='nvim'
+alias vi='nvim'
+alias nv='nvim'
+alias n='nvim'#functions
+
+#Funcations
 #oneliner of mkdir <folder> && cd <folder>
 mkcd() {
 	mkdir "$1"
