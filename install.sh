@@ -43,7 +43,7 @@ homedir=$1
 dotfiledir=${homedir}/dotfiles
 
 # list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases tmux.conf"
+files="bash_profile bashrc bash_prompt aliases tmux.conf nvim"
 
 # change to the dotfiles directory
 BLUE "Changing to the ${dotfiledir} directory"

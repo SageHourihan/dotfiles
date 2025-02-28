@@ -23,10 +23,7 @@ function BLUE(){
 BLUE "updating repositories..."
 sudo apt update
 
-BLUE "installing vim..."
-sudo apt install -y vim
-
-BLUE "installing vbox guest additions and utils..."
-sudo apt install -y virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms
+BLUE "installing neovim..."
+sudo apt install -y neovim
 
 GREEN "installs complete"
