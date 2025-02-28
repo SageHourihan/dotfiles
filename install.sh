@@ -43,7 +43,7 @@ homedir=$1
 dotfiledir=${homedir}/dotfiles
 
 # list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases tmux.conf"
+files="bash_profile bashrc bash_prompt aliases tmux.conf nvim"
 
 # change to the dotfiles directory
 BLUE "Changing to the ${dotfiledir} directory"
@@ -52,10 +52,15 @@ GREEN "...done"
 
 # create symlinks (will overwrite old dotfiles)
 for file in ${files}; do
-    BLUE "Creating symlink to $file in home directory."
-    ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
+    mkdir -p ${homedir}/.config # Create .config if it doesn't exist
+    if [ "$file" == "nvim" ]; then
+        # Create symlink for nvim
+        ln -sf ${dotfiledir}/${file} ${homedir}/.config/${file}
+    else
+        # Create symlink for other files
+        ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
+    fi
 done
-
 #running post script installs for few tools
 chmod +x tools.sh
 ./tools.sh
