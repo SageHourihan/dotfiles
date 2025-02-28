@@ -52,6 +52,7 @@ GREEN "...done"
 
 # create symlinks (will overwrite old dotfiles)
 for file in ${files}; do
+    mkdir -p ${homedir}/.config # Create .config if it doesn't exist
     if [ "$file" == "nvim" ]; then
         # Create symlink for nvim
         ln -sf ${dotfiledir}/${file} ${homedir}/.config/${file}
