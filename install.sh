@@ -51,11 +51,11 @@ cd ${dotfiledir}
 GREEN "...done"
 
 # create symlinks (will overwrite old dotfiles)
-for file in ${files}; do
-    BLUE "Creating symlink to $file in home directory."
-    ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
-done
-
+ if [ "$file" == "nvim" ]; then
+        ln -sf ${dotfiledir}/${file} ${homedir}/.config/${file}
+    else
+        ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
+ fi
 #running post script installs for few tools
 chmod +x tools.sh
 ./tools.sh
