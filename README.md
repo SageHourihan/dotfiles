@@ -31,4 +31,11 @@ Refresh the .bashrc and .bash_profile
 After running the install script, Neovim's configuration will be symlinked to `~/.config/nvim`.
 
 **Installing vim-plug:**
-Open neovim and run :PlugInstall
+
+If you use vim-plug as your plugin manager, you'll need to install it first.
+
+For Unix-like systems, run:
+
+```bash
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+       [https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim](https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)pen neovim and run :PlugInstall
