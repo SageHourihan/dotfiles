@@ -38,4 +38,6 @@ For Unix-like systems, run:
 
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-       [https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim](https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)pen neovim and run :PlugInstall
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+Then open Neovim and run :PlugInstall
