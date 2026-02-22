@@ -1,6 +1,3 @@
-#local ssh
-alias ub='ssh sage@127.0.0.1 -p 2222'
-
 #common commands
 alias q='quit'
 alias c='clear'

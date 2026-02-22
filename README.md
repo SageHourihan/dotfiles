@@ -1,43 +1,57 @@
-# Sage's dotfiles
+# Sage's Dotfiles
 
-Uploading my dotfiles to a repository.
-______
-### Installation
+Dotfiles for Ubuntu (Multipass) VMs.
 
-**Using Git**
+---
 
-*Note: Make sure you are in the root directory*
-
-`git clone https://github.com/SageHourihan/dotfiles`
-
-Change directory into dotfiles
-
-`cd dotfiles`
-
-Make the install.sh script executable
-
-`chmod +x install.sh`
-
-Run the install script with the tilde(~) as a parameter
-
-`./install.sh ~`
-
-Refresh the .bashrc and .bash_profile
-
-`source .bashrc source .bash_profile source .tmux.conf`
-
-**Neovim Installation and Plugin Management (vim-plug)**
-
-After running the install script, Neovim's configuration will be symlinked to `~/.config/nvim`.
-
-**Installing vim-plug:**
-
-If you use vim-plug as your plugin manager, you'll need to install it first.
-
-For Unix-like systems, run:
+## Installation
 
 ```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/SageHourihan/dotfiles
+cd dotfiles
+chmod +x install.sh
+./install.sh ~
 ```
-Then open Neovim and run :PlugInstall
+
+`install.sh` will:
+- Symlink all dotfiles into `$HOME` (`.bashrc`, `.aliases`, `.bash_profile`, etc.)
+- Symlink `nvim/` to `~/.config/nvim`
+- Run `tools.sh` to install dependencies
+
+`tools.sh` installs:
+- `nvim` via `snap install nvim --classic`
+- `node` via `snap install node --classic`
+
+After installing, reload your shell:
+
+```bash
+source ~/.bashrc
+```
+
+---
+
+## Neovim
+
+Uses **Lazy.nvim** as the plugin manager with an `init.lua` config.
+
+On first launch, Lazy will automatically bootstrap itself and install all plugins. No manual setup needed.
+
+See [`NVIM_CHEATSHEET.md`](./NVIM_CHEATSHEET.md) for keybindings and plugin usage.
+
+**Useful commands inside nvim:**
+
+| Command | Action |
+|---------|--------|
+| `:Lazy` | Open plugin manager |
+| `:Lazy sync` | Update all plugins |
+| `:Mason` | Open LSP server manager |
+
+---
+
+## Cheatsheets
+
+| File | Contents |
+|------|----------|
+| [`NVIM_CHEATSHEET.md`](./NVIM_CHEATSHEET.md) | Neovim keybindings, LSP, Telescope, plugins |
+| [`SHELL_CHEATSHEET.md`](./SHELL_CHEATSHEET.md) | Shell aliases and functions |
+| [`TMUX_CHEATSHEET.md`](./TMUX_CHEATSHEET.md) | Tmux panes, windows, sessions |

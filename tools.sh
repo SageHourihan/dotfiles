@@ -20,10 +20,10 @@ function BLUE(){
 	echo -e "\n${BLUE}${1}${NC}"
 }
 
-BLUE "updating repositories..."
-sudo apt update
+BLUE "installing neovim via snap..."
+sudo snap install nvim --classic
 
-BLUE "installing neovim..."
-sudo apt install -y neovim
+BLUE "installing node via snap..."
+sudo snap install node --classic
 
 GREEN "installs complete"
