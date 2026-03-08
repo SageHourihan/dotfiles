@@ -1,0 +1,9 @@
+# ~/.aliases.private — machine-specific aliases (copy to ~ and fill in your values)
+# This file is gitignored. Never commit real IPs, hostnames, or credentials.
+#
+# Copy to home directory:
+#   cp aliases.private.example ~/.aliases.private
+
+# SSH shortcuts
+alias ub='ssh USER@HOST -p PORT'
+alias pi='ssh USER@HOST'

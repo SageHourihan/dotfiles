@@ -1,0 +1,44 @@
+# ── CTF aliases — builds on top of linux profile ─────────────────────────────
+# shellcheck source=../linux/.aliases.local
+[ -f "$(dirname "${BASH_SOURCE[0]}")/../linux/.aliases.local" ] && \
+    source "$(dirname "${BASH_SOURCE[0]}")/../linux/.aliases.local"
+
+# ── Navigation ────────────────────────────────────────────────────────────────
+alias wl='cd /usr/share/wordlists'
+alias tools='cd /opt'
+
+# ── Nmap ─────────────────────────────────────────────────────────────────────
+# Quick scan: top ports, version detection, default scripts
+nmap-quick() { nmap -sV -sC --open "$@"; }
+# Full scan: all ports
+nmap-full() { nmap -sV -sC -p- --open -oA "nmap_$(date +%F)_$1" "$@"; }
+# UDP scan
+nmap-udp() { sudo nmap -sU --top-ports 200 "$@"; }
+
+# ── Web enumeration ───────────────────────────────────────────────────────────
+# gobuster with common wordlist
+gobuster-dir() {
+    gobuster dir -u "$1" -w /usr/share/wordlists/dirb/common.txt "${@:2}"
+}
+gobuster-dns() {
+    gobuster dns -d "$1" -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt "${@:2}"
+}
+
+# ── Password cracking ─────────────────────────────────────────────────────────
+alias john-rock='john --wordlist=/usr/share/wordlists/rockyou.txt'
+alias hashcat-rock='hashcat -a 0 -w 3'
+
+# ── Metasploit ────────────────────────────────────────────────────────────────
+alias msf='msfconsole -q'
+
+# ── Other tools ───────────────────────────────────────────────────────────────
+alias sqlmap-basic='sqlmap --batch --dbs'
+alias nikto-basic='nikto -C all -h'
+
+# Start/stop common services
+alias start-pg='sudo service postgresql start'   # for metasploit DB
+alias start-neo4j='sudo service neo4j start'     # for bloodhound
+
+# Python HTTP server (serve current dir)
+alias serve='python3 -m http.server'
+alias serve80='sudo python3 -m http.server 80'

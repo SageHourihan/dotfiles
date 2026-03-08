@@ -1,0 +1,45 @@
+# ── Navigation ────────────────────────────────────────────────────────────────
+alias home='cd ~'
+alias ~='cd ~'
+alias root='cd /'
+alias desktop='cd ~/Desktop'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+# ── Common commands ───────────────────────────────────────────────────────────
+alias c='clear'
+alias cls='clear'
+alias h='history'
+
+# ── List files ────────────────────────────────────────────────────────────────
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+
+# ── Git ───────────────────────────────────────────────────────────────────────
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add -A'
+alias gcm='git commit -m'
+alias gck='git checkout'
+alias gp='git push'
+alias gc='git clone'
+alias gm='git merge'
+alias gsw='git switch'
+alias gb='git branch'
+alias gl='git log --oneline --graph --decorate'
+
+# ── Functions ─────────────────────────────────────────────────────────────────
+
+# mkdir and cd into it in one step
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Remove a directory with sudo
+rmd() {
+    sudo rm -r "$1"
+}

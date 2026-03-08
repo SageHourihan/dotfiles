@@ -1,0 +1,28 @@
+# ── macOS-specific aliases ────────────────────────────────────────────────────
+
+# macOS ls uses -G for color (not --color=auto like GNU)
+alias ls='ls -G'
+
+# Clipboard
+alias copy='pbcopy'
+alias paste='pbpaste'
+
+# Open current directory in Finder
+alias finder='open .'
+
+# Flush DNS cache
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+
+# Homebrew
+alias brewup='brew update && brew upgrade && brew cleanup'
+alias brewlist='brew list --formula'
+
+# Show/hide hidden files in Finder
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
+
+# Lock screen
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+# Get macOS software updates
+alias osupdate='sudo softwareupdate -i -a'

@@ -1,5 +1,5 @@
-#local ssh
-alias ub='ssh sage@127.0.0.1 -p 2222'
+# Machine-specific SSH aliases live in ~/.aliases.private (gitignored)
+# See aliases.private.example for the format
 
 #common commands
 alias q='quit'

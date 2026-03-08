@@ -1,0 +1,28 @@
+# ── Linux-specific aliases ────────────────────────────────────────────────────
+
+# GNU ls color
+alias ls='ls --color=auto'
+
+# Package management (apt)
+alias update='sudo apt update && sudo apt upgrade -y'
+alias install='sudo apt install -y'
+alias remove='sudo apt remove -y'
+alias search='apt search'
+
+# SSH service management (systemctl)
+alias ssh-status='sudo systemctl status ssh'
+alias ssh-start='sudo systemctl start ssh'
+alias ssh-stop='sudo systemctl stop ssh'
+alias ssh-enable='sudo systemctl enable ssh'
+alias ssh-disable='sudo systemctl disable ssh'
+alias ssh-restart='sudo systemctl restart ssh'
+
+# System info
+alias meminfo='free -h'
+alias cpuinfo='lscpu'
+alias diskinfo='df -h'
+alias ports='ss -tuln'
+
+# Process management
+alias psa='ps aux'
+alias psg='ps aux | grep'

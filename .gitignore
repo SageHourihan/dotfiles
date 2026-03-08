@@ -13,6 +13,7 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Private Information
+# Private / machine-specific (never commit these)
 .private
 .gitconfig
+.aliases.private

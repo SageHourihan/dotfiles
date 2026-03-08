@@ -1,62 +1,112 @@
 #!/usr/bin/env bash
-############################
-# This script creates symlinks from the home directory to any desired dotfiles in ${homedir}/dotfiles
-# And also installs Homebrew Packages
-# And sets Sublime preferences
-############################
+# Dotfiles installer
+# Usage: ./install.sh [mac|linux|ctf]
 
-# Define colors...
-RED=`tput bold && tput setaf 1`
-GREEN=`tput bold && tput setaf 2`
-YELLOW=`tput bold && tput setaf 3`
-BLUE=`tput bold && tput setaf 4`
-NC=`tput sgr0`
+set -euo pipefail
 
-function RED(){
-	echo -e "\n${RED}${1}${NC}"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# shellcheck source=lib/common.sh
+source "$DOTFILES_DIR/lib/common.sh"
+# shellcheck source=lib/detect.sh
+source "$DOTFILES_DIR/lib/detect.sh"
+
+# ── Profile selection ─────────────────────────────────────────────────────────
+select_profile() {
+    local detected
+    detected="$(detect_os)"
+
+    if [ -n "${1:-}" ]; then
+        echo "$1"
+        return
+    fi
+
+    echo ""
+    info "Detected OS: $detected"
+    echo ""
+    echo "Select a profile to install:"
+    echo "  1) mac   — aliases, bash, tmux"
+    echo "  2) linux — aliases, bash, tmux, neovim"
+    echo "  3) ctf   — linux + CTF tools and aliases"
+    echo ""
+    read -rp "Choice [1-3]: " choice
+    case "$choice" in
+        1|mac)   echo "mac" ;;
+        2|linux) echo "linux" ;;
+        3|ctf)   echo "ctf" ;;
+        *)       error "Invalid choice."; exit 1 ;;
+    esac
 }
-function GREEN(){
-	echo -e "\n${GREEN}${1}${NC}"
+
+# ── Symlink base dotfiles ─────────────────────────────────────────────────────
+install_base() {
+    info "\nInstalling base dotfiles..."
+    local base="$DOTFILES_DIR/base"
+    local files=(bash_profile bashrc bash_prompt aliases tmux.conf)
+    for f in "${files[@]}"; do
+        safe_symlink "$base/.$f" "$HOME/.$f"
+    done
 }
-function YELLOW(){
-	echo -e "\n${YELLOW}${1}${NC}"
+
+# ── Symlink profile aliases ───────────────────────────────────────────────────
+install_profile_aliases() {
+    local profile="$1"
+    info "\nInstalling profile aliases ($profile)..."
+
+    local src="$DOTFILES_DIR/profiles/$profile/.aliases.local"
+    safe_symlink "$src" "$HOME/.aliases.local"
 }
-function BLUE(){
-	echo -e "\n${BLUE}${1}${NC}"
+
+# ── Symlink neovim config ─────────────────────────────────────────────────────
+install_nvim() {
+    info "\nInstalling neovim config..."
+    mkdir -p "$HOME/.config"
+    safe_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 }
 
-# if parameter does not = 1 print and exit
-if [ "$#" -ne 1 ]; then
-    RED "Usage: install.sh <home_directory>"
-    exit
-fi
+# ── CTF tools installer ───────────────────────────────────────────────────────
+install_ctf_tools() {
+    read -rp "Install CTF tools? (requires sudo) [y/N]: " ans
+    if [[ "$ans" =~ ^[Yy]$ ]]; then
+        bash "$DOTFILES_DIR/profiles/ctf/tools.sh"
+    else
+        warn "Skipping CTF tool installation."
+    fi
+}
 
-# testing if root
-if [ $UID -ne 0 ]; then
-    RED "You must run this script as root!" && echo
-    exit
-fi
+# ── Main ──────────────────────────────────────────────────────────────────────
+main() {
+    echo ""
+    info "=== Dotfiles Installer ==="
 
-homedir=$1
+    local profile
+    profile="$(select_profile "${1:-}")"
+    info "Profile: $profile"
 
-# dotfiles directory
-dotfiledir=${homedir}/dotfiles
+    install_base
 
-# list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases tmux.conf"
+    case "$profile" in
+        mac)
+            install_profile_aliases "mac"
+            ;;
+        linux)
+            install_profile_aliases "linux"
+            install_nvim
+            ;;
+        ctf)
+            install_profile_aliases "ctf"
+            install_nvim
+            install_ctf_tools
+            ;;
+        *)
+            error "Unknown profile: $profile"
+            exit 1
+            ;;
+    esac
 
-# change to the dotfiles directory
-BLUE "Changing to the ${dotfiledir} directory"
-cd ${dotfiledir}
-GREEN "...done"
+    echo ""
+    success "Done! Reload your shell:"
+    echo "  source ~/.bash_profile"
+}
 
-# create symlinks (will overwrite old dotfiles)
-for file in ${files}; do
-    BLUE "Creating symlink to $file in home directory."
-    ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
-done
-
-#running post script installs for few tools
-chmod +x tools.sh
-./tools.sh
-
+main "${1:-}"
